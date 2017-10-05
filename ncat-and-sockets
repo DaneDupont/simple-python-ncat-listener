@@ -1,0 +1,17 @@
+#Using Ncat as general purpose network connector and making socket connections in python 3.0
+#Requires ncat - visit https://nmap.org/download.html , ncat comes in the package or run
+#pip install --target=c:/Same/Dir/as/this
+#Make sure ncat is saved in same directory as this script
+import socket, os, time
+
+#start ncat listening on port 1111 in verbose on a 2nd Command Prompt
+os.system("start cmd /k ncat -l -v -p 1111")
+time.sleep(2)
+sendsting = "Hello, World!"
+print("Sending: ", sendsting)
+
+#make socket connection to port 1111 and send a string
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(('localhost', 1111))
+s.send(sendsting.encode())
+s.close()
