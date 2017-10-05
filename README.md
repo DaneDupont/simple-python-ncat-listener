@@ -1,0 +1,2 @@
+# simple-python-ncat-listener
+A simple python script to make socket connections and launch a localhost listener with ncat.
